@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class CoursesListActivity extends AppCompatActivity {
     ListView listall;
     ArrayAdapter<String> adapter;
+     ArrayList<student> studentsList= new ArrayList<>();
+    ArrayList<String> array = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +19,15 @@ public class CoursesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_courses_list);
 
         Bundle bundle = getIntent().getExtras();
-        ArrayList<String> array = (ArrayList<String>)bundle.getStringArrayList("CoursesArray");
+            ArrayList<student> studentsList= (ArrayList<student>)bundle.getStringArrayList("StudentsList");
 
 
         listall=(ListView)findViewById(R.id.listView);
+        
+        for(student stu : studentsList){
+         array.add(stu.getStudentNumber()+" "+getStudentGrade());   
+            
+        }
 
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array);
         listall.setAdapter(adapter);
