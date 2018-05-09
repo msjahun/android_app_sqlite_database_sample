@@ -57,7 +57,7 @@ public class CoursesEditActivity extends AppCompatActivity {
 
                 getAllRecord();
                 Intent intent = new Intent(CoursesEditActivity.this, CoursesListActivity.class);
-                intent.putExtra("CoursesArray",studentsList );
+                intent.putExtra("StudentsList",studentsList );
                 startActivity(intent);
 
 
@@ -86,7 +86,16 @@ public class CoursesEditActivity extends AppCompatActivity {
         SQLiteDatabase db=v1.getReadableDatabase();
         Cursor c=db.rawQuery("SELECT * FROM "+dbTableName +"  ",null);
 
-
+        //this is where you should write your database reading code
+      //add this line studentsList.removeAll(); or clearAll();
+            //our Cursor is c.
+          
+          // while (c.moveToNext()) {
+                  //studentsList.add( new student(c.getString(1),c.getString(2));
+             //           }
+            
+           
+          
           studentsList.add( new student("number","grade"));
         studentsList.add( new student("number1","grade1"));
 
